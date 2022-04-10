@@ -1,6 +1,6 @@
 import "../style.css";
-import vertex from "../glsl/Normal/vert.glsl";
-import fragment from "../glsl/Normal/frag.glsl";
+import vertex from "../glsl/normal/vert.glsl";
+import fragment from "../glsl/normal/frag.glsl";
 
 import { Renderer, Camera, Transform, Torus, Program, Mesh, Orbit } from "ogl";
 
