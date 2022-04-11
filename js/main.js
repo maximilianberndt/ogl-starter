@@ -17,7 +17,7 @@ const renderer = new Renderer({
 const { gl } = renderer;
 const scene = new Transform();
 
-const camera = new Camera(gl, { fov: 35 });
+const camera = new Camera(gl, { fov: 75 });
 camera.position.z = 5;
 
 const controls = new Orbit(camera, { element: canvas.parentNode });
@@ -29,7 +29,7 @@ const program = new Program(gl, {
 
 const geometry = new Torus(gl, {
   radius: 1,
-  tube: 0.4,
+  tube: 0.5,
   radialSegments: 16,
   tubularSegments: 32,
 });
