@@ -1,4 +1,5 @@
 import "../style.css";
+import gui from "./gui";
 import vertex from "../glsl/normal/vert.glsl";
 import fragment from "../glsl/normal/frag.glsl";
 
