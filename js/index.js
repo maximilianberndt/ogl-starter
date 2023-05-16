@@ -1,4 +1,4 @@
-import "../style.css";
+import "../css/style.css";
 import { Orbit } from "ogl";
 import { renderer, scene, canvas } from "./renderer";
 import camera, { resizeCamera } from "./camera";

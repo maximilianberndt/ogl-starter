@@ -1,5 +1,3 @@
-import "../style.css";
-
 import { Renderer, Transform } from "ogl";
 
 const canvas = document.querySelector("canvas");
