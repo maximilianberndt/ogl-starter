@@ -2,17 +2,19 @@
   "name": "ogl-starter",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
-  "devDependencies": {
-    "vite": "^2.9.0",
-    "vite-plugin-glsl": "^0.1.2"
-  },
   "dependencies": {
-    "lil-gui": "^0.16.1",
-    "ogl": "^0.0.91"
+    "@maaax/utils": "^1.1.2",
+    "lil-gui": "^0.18.1",
+    "ogl": "^0.0.117"
+  },
+  "devDependencies": {
+    "vite": "^4.3.6",
+    "vite-plugin-glsl": "^1.1.2"
   }
 }
