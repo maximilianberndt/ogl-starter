@@ -2,6 +2,7 @@ import { Torus, Program, Mesh, Color } from "ogl";
 import vertex from "../glsl/base/vert.glsl";
 import fragment from "../glsl/base/frag.glsl";
 import { gl, scene } from "./renderer";
+import gui from "./gui";
 
 const program = new Program(gl, {
 	vertex,
@@ -20,6 +21,11 @@ const geometry = new Torus(gl, {
 
 const mesh = new Mesh(gl, { geometry, program });
 mesh.setParent(scene);
+
+gui.addInput(program.uniforms.uColor, "value", {
+	title: "Color",
+	color: { type: 'float' },
+})
 
 const shape = {
 	mesh,

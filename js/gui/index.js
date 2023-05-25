@@ -1,5 +1,5 @@
-import GUI from "lil-gui";
+import { Pane } from "tweakpane";
 
-const gui = new GUI();
+const gui = new Pane();
 
 export default gui;
