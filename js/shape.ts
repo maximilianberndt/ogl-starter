@@ -22,7 +22,7 @@ const geometry = new Torus(gl, {
 const mesh = new Mesh(gl, { geometry, program })
 mesh.setParent(scene)
 
-gui.addInput(program.uniforms.uColor, 'value', {
+gui.addBinding(program.uniforms.uColor, 'value', {
   title: 'Color',
   color: { type: 'float' },
 })
@@ -30,7 +30,7 @@ gui.addInput(program.uniforms.uColor, 'value', {
 const shape = {
   mesh,
   update: (time = 0) => {
-    mesh.rotation.y += 0.01
+    mesh.rotation.y = time
   },
 }
 

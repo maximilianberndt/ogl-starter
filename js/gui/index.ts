@@ -1,5 +1,5 @@
-import { Pane } from "tweakpane";
+import { Pane } from 'tweakpane'
 
-const gui = new Pane();
+const gui = new Pane()
 
-export default gui;
+export default gui
