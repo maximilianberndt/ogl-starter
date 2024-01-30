@@ -1,8 +1,9 @@
 import { Color, Mesh, Program, Torus } from 'ogl'
 import fragment from '../glsl/base/frag.glsl'
 import vertex from '../glsl/base/vert.glsl'
+import { onTick } from './app'
 import gui from './gui'
-import { gl, scene } from './renderer'
+import { gl } from './renderer'
 
 const program = new Program(gl, {
   vertex,
@@ -19,19 +20,13 @@ const geometry = new Torus(gl, {
   tubularSegments: 32,
 })
 
-const mesh = new Mesh(gl, { geometry, program })
-mesh.setParent(scene)
+export const mesh = new Mesh(gl, { geometry, program })
 
 gui.addBinding(program.uniforms.uColor, 'value', {
   title: 'Color',
   color: { type: 'float' },
 })
 
-const shape = {
-  mesh,
-  update: (time = 0) => {
-    mesh.rotation.y = time
-  },
-}
-
-export default shape
+onTick((time = 0) => {
+  mesh.rotation.y = time
+})

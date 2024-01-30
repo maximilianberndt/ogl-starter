@@ -1,31 +1,18 @@
 import { Orbit } from 'ogl'
 import '../css/style.css'
-import camera, { resizeCamera } from './camera'
+import { onResize, onTick } from './app'
+import camera from './camera'
 import { canvas, renderer, scene } from './renderer'
-import shape from './shape'
+import { mesh } from './shape'
 
 const controls = new Orbit(camera, { element: canvas.parentNode })
+mesh.setParent(scene)
 
-const tick = (t = 0) => {
-  requestAnimationFrame(tick)
-
-  const time = t * 0.001
-
+onTick(() => {
   controls.update()
-  shape.update(time)
-
   renderer.render({ scene, camera })
-}
+})
 
-const resize = () => {
-  const { width, height } = canvas.parentNode.getBoundingClientRect()
-
+onResize(({ width, height }) => {
   renderer.setSize(width, height)
-
-  resizeCamera({ width, height })
-}
-
-window.addEventListener('resize', resize, false)
-
-resize()
-tick()
+})
