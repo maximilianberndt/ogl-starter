@@ -1,8 +1,7 @@
 import { Color, Mesh, Program, Torus } from 'ogl'
 import fragment from '../glsl/base/frag.glsl'
 import vertex from '../glsl/base/vert.glsl'
-import { onTick } from './app'
-import gui from './gui'
+import { onDebug, onTick } from './app'
 import { gl } from './renderer'
 
 const program = new Program(gl, {
@@ -22,9 +21,11 @@ const geometry = new Torus(gl, {
 
 export const mesh = new Mesh(gl, { geometry, program })
 
-gui.addBinding(program.uniforms.uColor, 'value', {
-  title: 'Color',
-  color: { type: 'float' },
+onDebug((gui) => {
+  gui.addBinding(program.uniforms.uColor, 'value', {
+    title: 'Color',
+    color: { type: 'float' },
+  })
 })
 
 onTick((time = 0) => {
