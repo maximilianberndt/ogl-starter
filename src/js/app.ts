@@ -53,8 +53,8 @@ export const onDebug = (callback: DebugCallback) => debugQueue.push(callback);
 
 const initDebug = async () => {
   const { gui, stats } = await import("./debug");
-  debugQueue.forEach((callback) => callback(gui));
 
+  debugQueue.forEach((callback) => callback(gui));
   document.body.appendChild(stats.dom);
 };
 

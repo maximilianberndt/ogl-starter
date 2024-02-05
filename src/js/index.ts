@@ -5,7 +5,9 @@ import camera from "./camera";
 import { canvas, gl, post, renderer, resolution, scene } from "./renderer";
 import { mesh } from "./components/shape";
 
-const controls = new Orbit(camera, { element: canvas.parentNode });
+const controls = new Orbit(camera, {
+  element: canvas!.parentNode as HTMLDivElement,
+});
 mesh.setParent(scene);
 
 gl.clearColor(1, 1, 1, 1);
@@ -13,7 +15,7 @@ gl.clearColor(1, 1, 1, 1);
 onFrame(controls.update);
 onFrame(() => {
   post.render({ scene, camera });
-}, Infinity);
+}, Infinity - 1);
 
 onResize(({ width, height }) => {
   renderer.setSize(width, height);

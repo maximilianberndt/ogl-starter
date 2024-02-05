@@ -19,8 +19,9 @@ stats.init(gl);
 
 onFrame(() => {
   stats.begin();
-}, 0);
+}, -Infinity);
+
 onFrame(() => {
   stats.update();
   stats.end();
-}, 999);
+}, Infinity);
