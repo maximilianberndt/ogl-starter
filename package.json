@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "ogl": "^1.0.3",
+    "stats-gl": "^2.0.1",
     "tweakpane": "^4.0.3"
   },
   "devDependencies": {
