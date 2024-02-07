@@ -9,6 +9,7 @@ export const renderer = new Renderer({
   canvas,
   dpr: Math.min(window.devicePixelRatio, 2),
   powerPreference: 'high-performance',
+  antialias: true,
 })
 
 export const { gl } = renderer

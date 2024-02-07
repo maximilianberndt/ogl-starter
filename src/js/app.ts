@@ -1,6 +1,7 @@
 import { Pane } from 'tweakpane'
 import { canvas } from './renderer'
 
+type LoadPromise = Promise<any>
 type RenderCallback = (t: number, deltaTime: number) => any
 type ResizeCallback = ({
   width,
@@ -13,6 +14,7 @@ type DebugCallback = (gui: Pane) => void
 
 let now = 0
 let deltaTime = 0
+const loadQueue: LoadPromise[] = []
 const renderQueue: { callback: RenderCallback; priority: number }[] =
   []
 const resizeQueue: ResizeCallback[] = []
@@ -44,6 +46,8 @@ const resize = () => {
   resizeQueue.forEach((callback) => callback(size))
 }
 
+export const load = (promise: LoadPromise) => loadQueue.push(promise)
+
 export const onFrame = (callback: RenderCallback, priority = 1) => {
   renderQueue.push({ callback, priority })
   renderQueue.sort((a, b) => a.priority - b.priority)
@@ -63,9 +67,10 @@ const initDebug = async () => {
 }
 
 // Init with delay, so that all inital functions can be pushed to the queue
-setTimeout(() => {
+setTimeout(async () => {
+  await Promise.allSettled(loadQueue)
+
   new ResizeObserver(resize).observe(document.body)
-  tick()
 
   // Enable debug
   const checkEnableDebug = () => {
@@ -80,4 +85,6 @@ setTimeout(() => {
   } else {
     window.addEventListener('hashchange', checkEnableDebug)
   }
+
+  tick()
 }, 0)
