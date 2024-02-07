@@ -29,9 +29,8 @@ const tick = (t = 0): void => {
   deltaTime = t - now
   now = t
 
-  renderQueue.forEach(({ callback }) =>
-    callback(t * 0.001, deltaTime)
-  )
+  const time = t * 0.001
+  renderQueue.forEach(({ callback }) => callback(time, deltaTime))
 }
 
 const resize = () => {
