@@ -1,27 +1,15 @@
-import Stats from "stats-gl";
-import { Pane } from "tweakpane";
-import { onFrame } from "./app";
-import { gl } from "./renderer";
+import { Pane } from 'tweakpane'
+import { onFrame } from './app'
 
-export const gui = new Pane();
+const options = {
+  fps: 0,
+}
 
-export const stats = new Stats({
-  logsPerSecond: 20,
-  samplesLog: 100,
-  samplesGraph: 10,
-  precision: 2,
-  horizontal: true,
-  minimal: true,
-  mode: 0,
-});
+export const gui = new Pane()
 
-stats.init(gl);
+const folder = gui.addFolder({ title: 'Debug' })
+folder.addBinding(options, 'fps', { readonly: true })
 
-onFrame(() => {
-  stats.begin();
-}, -Infinity);
-
-onFrame(() => {
-  stats.update();
-  stats.end();
-}, Infinity);
+onFrame((t, deltaTime) => {
+  options.fps = 1000 / deltaTime
+}, Infinity)
