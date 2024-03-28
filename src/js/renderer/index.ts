@@ -1,5 +1,5 @@
 import { Post, Renderer, Transform, Vec2 } from 'ogl'
-import fragment from '../glsl/post/frag.glsl'
+import fragment from './frag.glsl'
 
 export const canvas = document.querySelector(
   'canvas'

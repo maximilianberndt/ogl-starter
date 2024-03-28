@@ -1,8 +1,8 @@
 import { Color, Mesh, Program, Torus } from 'ogl'
-import fragment from '../../glsl/base/frag.glsl'
-import vertex from '../../glsl/base/vert.glsl'
-import { onDebug, onFrame } from '../app'
-import { gl } from '../renderer'
+import { onDebug, onFrame } from '../../app'
+import { gl } from '../../renderer'
+import fragment from './frag.glsl'
+import vertex from './vert.glsl'
 
 const program = new Program(gl, {
   vertex,
@@ -33,3 +33,12 @@ onDebug((gui) => {
 onFrame((time = 0) => {
   mesh.rotation.y = time
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept('./frag.glsl', ({ default: fragment }) => {
+    program.setShaders({ fragment })
+  })
+  import.meta.hot.accept('./vert.glsl', ({ default: vertex }) => {
+    program.setShaders({ vertex })
+  })
+}
