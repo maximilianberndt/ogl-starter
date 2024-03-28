@@ -25,3 +25,9 @@ export const pass = post.addPass({
 })
 
 export const scene = new Transform()
+
+if (import.meta.hot) {
+  import.meta.hot.accept('./frag.glsl', ({ default: fragment }) => {
+    pass.program.setShaders({ fragment })
+  })
+}
