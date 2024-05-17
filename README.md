@@ -4,7 +4,7 @@ Starter template for [ogl](https://github.com/oframe/ogl) with [vite](https://vi
 
 ## Demo
 
-https://ogl-starter.netlify.app/
+[ogl-starter.netlify.app#debug](https://ogl-starter.netlify.app#debug)
 
 ## Installation
 
