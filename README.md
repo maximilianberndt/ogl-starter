@@ -47,8 +47,8 @@ onFrame((time, deltaTime) => {
 ```
 
 **onDebug**
-Provides access to tweakpane
-In production it gets enabled when you go to your-url.com#debug
+Provides access to tweakpane.
+In production this gets called by adding #debug to your url. This enables splitting tweakpane from the main bundle and lazy loading it.
 
 ```
 onDebug(gui => {
