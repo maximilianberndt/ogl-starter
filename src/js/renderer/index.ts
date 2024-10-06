@@ -7,10 +7,11 @@ export const canvas = document.querySelector(
 
 export const renderer = new Renderer({
   canvas,
-  dpr: Math.min(window.devicePixelRatio, 2),
-  powerPreference: 'high-performance',
-  antialias: true,
-})
+  dpr: Math.min(window.devicePixelRatio, 1.4),
+  powerPreference: "high-performance",
+  // Enable antialias when not using post processing
+  // antialias: true,
+});
 
 export const { gl } = renderer
 
