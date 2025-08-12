@@ -15,8 +15,7 @@ type DebugCallback = (gui: Pane) => void
 let now = 0
 let deltaTime = 0
 const loadQueue: LoadPromise[] = []
-const renderQueue: { callback: RenderCallback; priority: number }[] =
-  []
+const renderQueue: { callback: RenderCallback; priority: number }[] = []
 const resizeQueue: ResizeCallback[] = []
 const debugQueue: DebugCallback[] = []
 
@@ -52,11 +51,9 @@ export const onFrame = (callback: RenderCallback, priority = 1) => {
   renderQueue.sort((a, b) => a.priority - b.priority)
 }
 
-export const onResize = (callback: ResizeCallback) =>
-  resizeQueue.push(callback)
+export const onResize = (callback: ResizeCallback) => resizeQueue.push(callback)
 
-export const onDebug = (callback: DebugCallback) =>
-  debugQueue.push(callback)
+export const onDebug = (callback: DebugCallback) => debugQueue.push(callback)
 
 const initDebug = async () => {
   const { gui } = await import('./debug')

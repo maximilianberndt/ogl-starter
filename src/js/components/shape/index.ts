@@ -35,13 +35,10 @@ onFrame((time = 0) => {
 })
 
 if (import.meta.hot) {
-  import.meta.hot.accept(
-    ['./frag.glsl', './vert.glsl'],
-    ([frag, vert]) => {
-      program.setShaders({
-        fragment: frag?.default,
-        vertex: vert?.default,
-      })
-    }
-  )
+  import.meta.hot.accept(['./frag.glsl', './vert.glsl'], ([frag, vert]) => {
+    program.setShaders({
+      fragment: frag?.default,
+      vertex: vert?.default,
+    })
+  })
 }

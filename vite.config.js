@@ -1,10 +1,6 @@
-import { defineConfig } from "vite";
-import glsl from "vite-plugin-glsl";
-import eslint from "vite-plugin-eslint";
+import { defineConfig } from 'vite'
+import glsl from 'vite-plugin-glsl'
 
 export default defineConfig(({ mode }) => ({
-  plugins: [
-    glsl({ compress: mode !== "development" }),
-    eslint(),
-  ],
-}));
+  plugins: [glsl({ compress: mode !== 'development' })],
+}))
