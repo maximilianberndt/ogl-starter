@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@tweakpane/plugin-essentials": "^0.2.1",
@@ -15,8 +17,10 @@
   },
   "devDependencies": {
     "@tweakpane/core": "^2.0.5",
+    "prettier": "^3.6.2",
     "typescript": "^5.9.2",
     "vite": "^7.1.2",
+    "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-glsl": "^1.5.1"
   }
 }
